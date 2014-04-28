@@ -32,4 +32,24 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\..\packages\FluentAssertions.3.0.90\lib\portable-net40+sl5+win8+wp8\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\..\packages\FluentAssertions.3.0.90\lib\portable-net40+sl5+win8+wp8\FluentAssertions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\CSharpWarrior.Domain\CSharpWarrior.Domain.csproj">
+      <Project>{8DC0BB72-B549-402E-AAB7-EF599C8EA793}</Project>
+      <Name>CSharpWarrior.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
