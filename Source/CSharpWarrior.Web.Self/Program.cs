@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Nancy;
 using Nancy.Hosting.Self;
 
 namespace CSharpWarrior.Web
@@ -9,6 +10,7 @@ namespace CSharpWarrior.Web
 		public static void Main ()
 		{
 			var hostUri = "http://localhost:1234";
+			StaticConfiguration.DisableErrorTraces = false;
 			using (var host = new NancyHost (new Uri (hostUri), new ConsoleBootstrapper ())) {
 				host.Start ();
 				Process.Start (hostUri);

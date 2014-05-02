@@ -7,7 +7,7 @@ namespace CSharpWarrior.Web
 	{
 		public HelloWorldModule ()
 		{
-			Get ["/"] = x => "Hello World!";
+			Get ["/"] = x => View ["HelloWorld"];
 		}
 	}
 }
