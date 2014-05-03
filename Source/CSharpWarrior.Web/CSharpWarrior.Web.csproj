@@ -47,6 +47,9 @@
     <Content Include="views\HelloWorld.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="content\css\site.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -57,11 +60,14 @@
   </ProjectExtensions>
   <ItemGroup>
     <Compile Include="HelloWorldModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
+    <Folder Include="content\" />
+    <Folder Include="content\css\" />
   </ItemGroup>
 </Project>
