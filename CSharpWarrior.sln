@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Domain", "Sou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Web", "Source\CSharpWarrior.Web\CSharpWarrior.Web.csproj", "{D9FDFED6-2A8B-4C9D-9230-CC409143D3F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Web.Self", "Source\CSharpWarrior.Web.Self\CSharpWarrior.Web.Self.csproj", "{EED52CC8-07C9-49A7-AF57-92B6D05C743E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Web.Host", "Source\CSharpWarrior.Web.Host\CSharpWarrior.Web.Host.csproj", "{EED52CC8-07C9-49A7-AF57-92B6D05C743E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{04FD85BE-BE35-4043-940E-92C8DC88CBB2}"
 EndProject

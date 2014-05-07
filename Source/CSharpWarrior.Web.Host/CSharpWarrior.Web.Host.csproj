@@ -8,7 +8,7 @@
     <ProjectGuid>{EED52CC8-07C9-49A7-AF57-92B6D05C743E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>CSharpWarrior.Web</RootNamespace>
-    <AssemblyName>CSharpWarrior.Web.Self</AssemblyName>
+    <AssemblyName>CSharpWarrior.Web.Host</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
