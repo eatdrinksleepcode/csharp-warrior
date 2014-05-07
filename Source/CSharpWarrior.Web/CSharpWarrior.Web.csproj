@@ -59,7 +59,6 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <Compile Include="HelloWorldModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,5 +68,11 @@
     <Folder Include="views\" />
     <Folder Include="content\" />
     <Folder Include="content\css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpWarrior.Server\CSharpWarrior.Server.csproj">
+      <Project>{A0DE5524-B5C4-474C-A73A-A876BF4D73A9}</Project>
+      <Name>CSharpWarrior.Server</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
