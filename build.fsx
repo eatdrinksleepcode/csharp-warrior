@@ -3,11 +3,18 @@
 #r @"packages/FAKE.2.15.5/tools/FakeLib.dll"
 open Fake
 
+Target "NugetRestore" (fun _ ->
+    RestorePackages()
+)
+
 Target "BuildApp" (fun _ ->
     !! "Source/CSharpWarrior.Web.Host/CSharpWarrior.Web.Host.csproj"
         |> MSBuildRelease "" "Build"
         |> Log "AppBuild-Output: "
 )
 
-// start build
+
+"NugetRestore"
+    ==> "BuildApp"
+
 RunTargetOrDefault "BuildApp"
