@@ -13,8 +13,20 @@ Target "BuildApp" (fun _ ->
         |> Log "AppBuild-Output: "
 )
 
+Target "BuildTest" (fun _ ->
+    !! "Test/**/*.csproj"
+        |> MSBuildRelease "" "Build"
+        |> Log "TestBuild-Output: "
+)
+
+Target "Test" (fun _ ->
+    !! "Test/**/bin/Release/*.Test.dll"
+        |> NUnit (fun p -> p)
+)
 
 "NugetRestore"
     ==> "BuildApp"
+    <=> "BuildTest"
+    ==> "Test"
 
-RunTargetOrDefault "BuildApp"
+RunTargetOrDefault "Test"

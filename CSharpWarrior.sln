@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Server", "Sou
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{04FD85BE-BE35-4043-940E-92C8DC88CBB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWarrior.Server.Test", "Test\CSharpWarrior.Server.Test\CSharpWarrior.Server.Test.csproj", "{EF1B280E-3D47-4856-B958-5127956DFBF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F3E5B5D-2147-47AB-A43F-52AE11134206}"
+	ProjectSection(SolutionItems) = preProject
+		build.fsx = build.fsx
+		build.sh = build.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,13 +37,25 @@ Global
 		{EED52CC8-07C9-49A7-AF57-92B6D05C743E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED52CC8-07C9-49A7-AF57-92B6D05C743E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED52CC8-07C9-49A7-AF57-92B6D05C743E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1B280E-3D47-4856-B958-5127956DFBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1B280E-3D47-4856-B958-5127956DFBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1B280E-3D47-4856-B958-5127956DFBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1B280E-3D47-4856-B958-5127956DFBF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D9FDFED6-2A8B-4C9D-9230-CC409143D3F7} = {625E11D2-5DE2-4284-8FC1-FFCD464D12CC}
 		{EED52CC8-07C9-49A7-AF57-92B6D05C743E} = {625E11D2-5DE2-4284-8FC1-FFCD464D12CC}
 		{A0DE5524-B5C4-474C-A73A-A876BF4D73A9} = {625E11D2-5DE2-4284-8FC1-FFCD464D12CC}
+		{EF1B280E-3D47-4856-B958-5127956DFBF0} = {04FD85BE-BE35-4043-940E-92C8DC88CBB2}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Source\CSharpWarrior.Web\CSharpWarrior.Web.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.NoTabsAfterNonTabs = True
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/plain
 	EndGlobalSection
 EndGlobal
