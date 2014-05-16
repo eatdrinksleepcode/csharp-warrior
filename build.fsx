@@ -3,6 +3,8 @@
 #r @"packages/FAKE.2.15.5/tools/FakeLib.dll"
 open Fake
 
+CreateDir "Build"
+
 Target "NugetRestore" (fun _ ->
     RestorePackages()
 )
@@ -21,7 +23,7 @@ Target "BuildTest" (fun _ ->
 
 Target "Test" (fun _ ->
     !! "Test/**/bin/Release/*.Test.dll"
-        |> NUnit (fun p -> p)
+        |> NUnit (fun p -> { p with OutputFile = "Build/TestResults.xml" })
 )
 
 "NugetRestore"
