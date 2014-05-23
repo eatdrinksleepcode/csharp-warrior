@@ -1,6 +1,6 @@
 ﻿// include Fake lib
-#r @"packages/FAKE.2.15.5/tools/Nuget.Core.dll"
-#r @"packages/FAKE.2.15.5/tools/FakeLib.dll"
+#r @"packages/FAKE/tools/Nuget.Core.dll"
+#r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
 
 CreateDir "Build"
