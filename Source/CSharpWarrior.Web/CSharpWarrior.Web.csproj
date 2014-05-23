@@ -63,6 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Scripts\typings\jquery\jquery.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />

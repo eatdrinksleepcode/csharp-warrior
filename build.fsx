@@ -26,6 +26,12 @@ Target "Test" (fun _ ->
         |> NUnit (fun p -> { p with OutputFile = "Build/TestResults.xml" })
 )
 
+Target "NpmRestore" (fun _ ->
+    let exitCode = Shell.Exec("npm", "install")
+    trace(exitCode.ToString())
+    if exitCode <> 0 then failwithf "npm install failed: %i" exitCode
+)
+
 "NugetRestore"
     ==> "BuildApp"
     <=> "BuildTest"
