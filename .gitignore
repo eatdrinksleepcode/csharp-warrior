@@ -4,3 +4,6 @@ packages
 obj
 bin
 node_modules
+*.js
+*.js.map
+

@@ -32,9 +32,18 @@ Target "NpmRestore" (fun _ ->
     if exitCode <> 0 then failwithf "npm install failed: %i" exitCode
 )
 
+Target "WatchTypeScript" (fun _ ->
+    let exitCode = Shell.Exec("grunt", "watch")
+    trace(exitCode.ToString())
+    if exitCode <> 0 then failwithf "grunt watch failed: %i" exitCode
+)
+
 "NugetRestore"
     ==> "BuildApp"
     <=> "BuildTest"
     ==> "Test"
+
+"NpmRestore"
+    ==> "WatchTypeScript"
 
 RunTargetOrDefault "Test"

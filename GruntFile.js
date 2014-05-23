@@ -9,7 +9,8 @@ module.exports = function (grunt) {
                 src: ['Source/**/*.ts'],
                 options: {
                     module: 'amd',
-                    target: 'es5'
+                    target: 'es5',
+                    sourceMap: true,
                 }
             }
         },
