@@ -6,8 +6,7 @@ module.exports = function (grunt) {
         // pkg: grunt.file.readJSON('package.json'),
         typescript: {
             base: {
-                src: ['lib/**/*.ts'],
-                dest: 'js/PixelVisionJSDemos.js',
+                src: ['Source/**/*.ts'],
                 options: {
                     module: 'amd',
                     target: 'es5'
@@ -15,7 +14,7 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            files: ['Source/**/*.ts', 'Test/**/*.ts'],
+            files: ['Source/**/*.ts'],
             tasks: ['typescript']
         },
     });
