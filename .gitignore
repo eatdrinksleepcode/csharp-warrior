@@ -4,6 +4,6 @@ packages
 obj
 bin
 node_modules
-*.js
-*.js.map
+Source/CSharpWarrior.Web/Scripts/app/**/*.js
+Source/CSharpWarrior.Web/Scripts/app/**/*.js.map
 
