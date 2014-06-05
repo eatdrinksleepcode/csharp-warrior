@@ -32,14 +32,14 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ItemGroup>
-    <Reference Include="Nancy">
-      <HintPath>..\..\packages\Nancy.0.22.2\lib\net40\Nancy.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
+    <Reference Include="Nancy">
+      <HintPath>..\..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy.Hosting.Aspnet">
-      <HintPath>..\..\packages\Nancy.Hosting.Aspnet.0.22.2\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+      <HintPath>..\..\packages\Nancy.Hosting.Aspnet.0.23.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +50,17 @@
     <Content Include="content\css\site.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js">
+      <DependentUpon>angular-mocks.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-2.1.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="partials\welcome.html" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -73,15 +84,23 @@
     <None Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <None Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <None Include="Scripts\typings\angularjs\angular.d.ts" />
-    <None Include="Scripts\site.ts" />
-    <Content Include="Scripts\**\*.js">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Scripts\app\**\*.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\app\site.ts" />
+    <None Include="Scripts\angular-route.min.js.map" />
+    <None Include="Scripts\app\controllers\welcomeController.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
     <Folder Include="content\" />
     <Folder Include="content\css\" />
+    <Folder Include="Scripts\app\" />
+    <Folder Include="partials\" />
+    <Folder Include="scripts\" />
+    <Folder Include="Scripts\app\controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSharpWarrior.Server\CSharpWarrior.Server.csproj">

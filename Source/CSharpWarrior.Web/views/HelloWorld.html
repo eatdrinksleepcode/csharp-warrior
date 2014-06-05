@@ -2,9 +2,13 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="/content/css/site.css"/>
-        <script type="text/javascript" src="/Scripts/site.js"></script>
-	</head>
-	<body>
-		<p>Hello World!</p>
+        <script type="text/javascript" src="/Scripts/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="/Scripts/angular.js"></script>
+        <script type="text/javascript" src="/Scripts/angular-route.js"></script>
+        <script type="text/javascript" src="/Scripts/app/site.js"></script> 
+        <script type="text/javascript" src="/Scripts/app/controllers/welcomeController.js"></script> 
+    </head>
+	<body ng-app="csharpwarrior" ng-controller="WelcomeController">
+		{{welcomeMessage}}
 	</body>
 </html>
