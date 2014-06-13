@@ -6,4 +6,5 @@ bin
 node_modules
 Source/CSharpWarrior.Web/Scripts/app/**/*.js
 Source/CSharpWarrior.Web/Scripts/app/**/*.js.map
-
+Source/CSharpWarrior.Web/Scripts/tests/**/*.js
+Source/CSharpWarrior.Web/Scripts/tests/**/*.js.map

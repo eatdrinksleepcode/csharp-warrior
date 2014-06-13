@@ -76,15 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Scripts\typings\jquery\jquery.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-animate.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-resource.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-route.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
-    <None Include="Scripts\typings\angularjs\angular.d.ts" />
     <Content Include="Scripts\app\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -94,6 +85,17 @@
     <None Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\app\controllers\welcomeController.ts" />
     <None Include="Scripts\app\controllers\levelController.ts" />
+    <None Include="Scripts\tests\levelControllerTests.ts" />
+    <None Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
+    <None Include="Scripts\typings\angularjs\angular.d.ts" />
+    <None Include="Scripts\typings\jquery\jquery.d.ts" />
+    <None Include="Scripts\typings\jasmine\jasmine.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
@@ -103,6 +105,7 @@
     <Folder Include="partials\" />
     <Folder Include="scripts\" />
     <Folder Include="Scripts\app\controllers\" />
+    <Folder Include="Scripts\tests\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CSharpWarrior.Server\CSharpWarrior.Server.csproj">
