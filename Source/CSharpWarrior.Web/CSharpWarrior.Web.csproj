@@ -61,6 +61,7 @@
     <Content Include="partials\welcome.html" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="partials\level.html" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -92,6 +93,7 @@
     <None Include="Scripts\app\site.ts" />
     <None Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\app\controllers\welcomeController.ts" />
+    <None Include="Scripts\app\controllers\levelController.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="views\" />
