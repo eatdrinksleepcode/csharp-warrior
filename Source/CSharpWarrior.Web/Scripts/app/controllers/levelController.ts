@@ -5,6 +5,7 @@
 
 interface Level {
     tiles: Tile[];
+    objective: string;
 }
 
 interface Tile {
@@ -15,5 +16,8 @@ interface Tile {
 csharpControllers.controller('LevelController', function LevelController($scope:csharpLevelScope, $routeParams) {
 
     $scope.motivation = "Level " + $routeParams.currentLevel;
-    $scope.level = { tiles: [ { heroIsHere: true }, {}, { isExit: true } ] }
+    $scope.level = {
+        objective: "Get to the exit!",
+        tiles: [ { heroIsHere: true }, {}, { isExit: true } ] 
+    };
 });
