@@ -9,10 +9,11 @@ interface Level {
 
 interface Tile {
     heroIsHere?: boolean;
+    isExit?: boolean;
 }
 
 csharpControllers.controller('LevelController', function LevelController($scope:csharpLevelScope, $routeParams) {
 
     $scope.motivation = "Level " + $routeParams.currentLevel;
-    $scope.level = { tiles: [ { heroIsHere: true }, {} ] }
+    $scope.level = { tiles: [ { heroIsHere: true }, {}, { isExit: true } ] }
 });
