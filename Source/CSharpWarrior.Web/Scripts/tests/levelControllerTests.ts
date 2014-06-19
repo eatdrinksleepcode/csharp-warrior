@@ -10,12 +10,13 @@
         beforeEach(inject(function ($rootScope, $controller) {
             scope = $rootScope.$new();
             controller = $controller('LevelController', {
-                '$scope': scope
+                '$scope': scope,
+                '$routeParams': { currentLevel: 1 }
             });
         }));
 
-        it('sets the name', function () {
-            expect(scope.motivation).toBe('You can do it!');
+        it('sets the level', function () {
+            expect(scope.motivation).toBe('Level 1');
         });
     });
 });

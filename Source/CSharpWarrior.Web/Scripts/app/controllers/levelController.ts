@@ -1,11 +1,18 @@
 ﻿interface csharpLevelScope extends ng.IScope {
     motivation:string;
+    level:Level;
 }
 
-csharpControllers.controller('LevelController', function LevelController($scope:csharpLevelScope) {
+interface Level {
+    tiles: Tile[];
+}
 
-    $scope.motivation = "You can do it!"
+interface Tile {
+    heroIsHere?: boolean;
+}
 
+csharpControllers.controller('LevelController', function LevelController($scope:csharpLevelScope, $routeParams) {
+
+    $scope.motivation = "Level " + $routeParams.currentLevel;
+    $scope.level = { tiles: [ { heroIsHere: true }, {} ] }
 });
-
-

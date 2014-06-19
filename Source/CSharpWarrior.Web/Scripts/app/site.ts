@@ -9,7 +9,7 @@ var csharpwarrior = angular.module('csharpwarrior', ['ngRoute', 'csharpControlle
                         controller: 'WelcomeController',
                         templateUrl: "partials/welcome.html"
                     })
-                    .when('/level', {
+                    .when('/level/:currentLevel', {
                     controller: 'LevelController',
                     templateUrl: 'partials/level.html'
                     });

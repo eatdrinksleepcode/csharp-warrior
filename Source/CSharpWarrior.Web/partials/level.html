@@ -1,3 +1,7 @@
-﻿Hello Warrior!
+﻿<h3>Hello Warrior!</h3>
 
-{{motivation}}
+<h4>{{motivation}}</h4>
+
+<div class="tile" ng-repeat="tile in level.tiles">
+    <span ng-show="tile.heroIsHere">Hero!</span>
+</div>
