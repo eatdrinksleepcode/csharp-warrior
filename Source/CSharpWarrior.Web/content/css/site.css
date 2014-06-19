@@ -23,3 +23,7 @@
 #displayResults {
     display: block;
 }
+
+#displayResults.failure {
+    color: red;
+}

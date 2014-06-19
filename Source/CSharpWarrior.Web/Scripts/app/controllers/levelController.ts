@@ -2,8 +2,10 @@
     ctrl:LevelController;
     motivation:string;
     level:Level;
-    results:string;
     userCode:string;
+
+    results:string;
+    isError:boolean;
 }
 
 interface Level {
@@ -19,9 +21,12 @@ interface Tile {
 class LevelController {
 
     scope: csharpLevelScope;
+    http: ng.IHttpService;
 
-    constructor($scope:csharpLevelScope, $routeParams) {
+    constructor($scope:csharpLevelScope, $routeParams, $http: ng.IHttpService) {
         this.scope = $scope;
+        this.http = $http;
+
         this.scope.ctrl = this;
         this.scope.motivation = "Level " + $routeParams.currentLevel;
         this.scope.level = {
@@ -30,8 +35,16 @@ class LevelController {
         };
     }
 
-    private executeCode = function() {
-        this.scope.results = this.scope.userCode;
+    public executeCode = function() {
+        this.http.post('/level/1', this.scope.userCode)
+            .success((data) => {
+                this.scope.results = data.Result;
+                this.scope.isError = false;
+            })
+            .error((data) => {
+                this.scope.results = data.Result;
+                this.scope.isError = true;
+            });
     };
 }
 

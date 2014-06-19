@@ -11,4 +11,4 @@
 <textarea id="inputCode" ng-model="userCode">
 </textarea>
 <button ng-click="ctrl.executeCode()">Execute</button>
-<span id="displayResults">{{results}}</span>
+<span id="displayResults" ng-class="{failure: isError}">{{results}}</span>
