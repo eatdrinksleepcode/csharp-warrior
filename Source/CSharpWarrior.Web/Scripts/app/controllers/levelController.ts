@@ -38,12 +38,12 @@ class LevelController {
     public executeCode = function() {
         this.http.post('/level/1', this.scope.userCode)
             .success((data) => {
-                this.scope.results = data.Result;
+                this.scope.results = data.result;
                 this.scope.isError = false;
             })
             .error((data, status) => {
                 if(status === 400) {
-                    this.scope.results = data.Result;
+                    this.scope.results = data.result;
                 } else {
                     this.scope.results = 'Here be dragons!?! Sorry, something went wrong; try again soon...when the dragons are napping.';
                 }

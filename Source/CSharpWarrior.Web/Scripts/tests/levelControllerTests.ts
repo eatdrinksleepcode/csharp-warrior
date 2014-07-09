@@ -27,7 +27,7 @@
             }));
 
             it('displays successful result for good code', () => {
-                httpBackend.when('POST', '/level/1', 'good code').respond({ Result: 'Success!' });
+                httpBackend.when('POST', '/level/1', 'good code').respond({ result: 'Success!' });
 
                 scope.userCode = "good code";
                 controller.executeCode();
@@ -38,7 +38,7 @@
             });
 
             it('displays failure results for bad code', () => {
-                httpBackend.when('POST', '/level/1', 'bad code').respond(400, { Result: 'Failure!' });
+                httpBackend.when('POST', '/level/1', 'bad code').respond(400, { result: 'Failure!' });
 
                 scope.userCode = "bad code";
                 controller.executeCode();
