@@ -38,13 +38,24 @@
             });
 
             it('displays failure results for bad code', () => {
-                httpBackend.when('POST', '/level/1', 'bad code').respond(500, { Result: 'Failure!' });
+                httpBackend.when('POST', '/level/1', 'bad code').respond(400, { Result: 'Failure!' });
 
                 scope.userCode = "bad code";
                 controller.executeCode();
                 httpBackend.flush();
 
                 expect(scope.results).toBe("Failure!");
+                expect(scope.isError).toBe(true);
+            });
+
+            it('displays failure results for unknown errors', () => {
+                httpBackend.when('POST', '/level/1', 'unknown error').respond(404);
+
+                scope.userCode = "unknown error";
+                controller.executeCode();
+                httpBackend.flush();
+
+                expect(scope.results).toBe("Here be dragons!?! Sorry, something went wrong; try again soon...when the dragons are napping.");
                 expect(scope.isError).toBe(true);
             });
 
