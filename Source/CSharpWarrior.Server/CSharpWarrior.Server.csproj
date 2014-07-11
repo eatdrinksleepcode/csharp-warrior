@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A0DE5524-B5C4-474C-A73A-A876BF4D73A9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSharpWarrior.Web</RootNamespace>
+    <RootNamespace>CSharpWarrior.Server</RootNamespace>
     <AssemblyName>CSharpWarrior.Server</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,13 +33,22 @@
     <Compile Include="HelloWorldModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LevelModule.cs" />
+    <Compile Include="Compiler\PlayerCompiler.cs" />
+    <Compile Include="Compiler\CodeCompilationException.cs" />
+    <Compile Include="Domain\IPlayer.cs" />
+    <Compile Include="Domain\WarriorAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">
       <HintPath>..\..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compiler\" />
+    <Folder Include="Domain\" />
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EF1B280E-3D47-4856-B958-5127956DFBF0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CSharpWarrior.Web</RootNamespace>
+    <RootNamespace>CSharpWarrior.Server</RootNamespace>
     <AssemblyName>CSharpWarrior.Domain.Test</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LevelModuleTests.cs" />
+    <Compile Include="Compiler\PlayerCompilerTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -63,5 +64,8 @@
       <Project>{A0DE5524-B5C4-474C-A73A-A876BF4D73A9}</Project>
       <Name>CSharpWarrior.Server</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compiler\" />
   </ItemGroup>
 </Project>
