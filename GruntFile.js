@@ -2,8 +2,24 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-msbuild');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.initConfig({
+        msbuild: {
+            src: ['CSharpWarrior.sln'],
+            options: {
+                projectConfiguration: 'Debug',
+                targets: ['Rebuild'],
+                verbosity: 'quiet'
+            }
+
+        },
+        shell: {
+            nunit: {
+                command: 'mono --debug packages/NUnit.Runners.2.6.3/tools/nunit-console.exe "Test/CSharpWarrior.Server.Test/bin/Debug/CSharpWarrior.Domain.Test.dll" -noresult'
+            }
+        },
         // pkg: grunt.file.readJSON('package.json'),
         typescript: {
             base: {
@@ -38,10 +54,15 @@ module.exports = function (grunt) {
 			js: {
         		files: ['Source/CSharpWarrior.Web/Scripts/**/*.js'],
         		tasks: ['jasmine:all']
-    		}
+    		},
+            cs: {
+                files: ['Test/**/*.cs'],
+                tasks: ['msbuild', 'shell:nunit']
+            }
         }
     });
  
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('unitTests', ['msbuild', 'shell:nunit']);
  
 }
