@@ -11,16 +11,16 @@ module.exports = function (grunt) {
             options: {
                 projectConfiguration: 'Debug',
                 targets: ['Rebuild'],
-                verbosity: 'quiet'
+                verbosity: 'minimal'
             }
 
         },
         shell: {
             nunit: {
-                command: 'mono --debug packages/NUnit.Runners.2.6.3/tools/nunit-console.exe "Test/CSharpWarrior.Server.Test/bin/Debug/CSharpWarrior.Domain.Test.dll" -noresult'
+                command: 'mono packages/NUnit.Runners.2.6.3/tools/nunit-console.exe "Test/CSharpWarrior.Server.Test/bin/Debug/CSharpWarrior.Domain.Test.dll" -noresult'
             },
             nuget: {
-                command: 'nuget restore'
+                command: 'mono --runtime=v4.0 .nuget/nuget.exe restore'
             },
             npm: {
                 command: 'npm install'
