@@ -18,6 +18,12 @@ module.exports = function (grunt) {
         shell: {
             nunit: {
                 command: 'mono --debug packages/NUnit.Runners.2.6.3/tools/nunit-console.exe "Test/CSharpWarrior.Server.Test/bin/Debug/CSharpWarrior.Domain.Test.dll" -noresult'
+            },
+            nuget: {
+                command: 'nuget restore'
+            },
+            npm: {
+                command: 'npm install'
             }
         },
         // pkg: grunt.file.readJSON('package.json'),
@@ -64,5 +70,7 @@ module.exports = function (grunt) {
  
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('unitTests', ['msbuild', 'shell:nunit']);
+    grunt.registerTask('startDev', 
+                        [ 'shell:npm', 'shell:nuget', 'msbuild', 'shell:nunit', 'watch'])
  
 }
