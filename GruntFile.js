@@ -71,6 +71,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('unitTests', ['msbuild', 'shell:nunit']);
     grunt.registerTask('startDev', 
-                        [ 'shell:npm', 'shell:nuget', 'msbuild', 'shell:nunit', 'watch'])
+                        [ 'shell:npm', 'shell:nuget', 'msbuild', 'shell:nunit', 'typescript', 'jasmine', 'watch'])
  
 }
