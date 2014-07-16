@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using Nancy.ModelBinding;
 
 namespace CSharpWarrior.Web
 {
@@ -9,9 +10,22 @@ namespace CSharpWarrior.Web
             public string Result { get; set; }
         }
 
-        public LevelModule ()
+        private class LevelCode
         {
-            Post ["/level/{currentLevel}"] = args => new LevelResponse { Result = "Foobar!" };
+            public string Code { get; set; }
+        }
+
+        public LevelModule()
+        {
+            Post["/level/{currentLevel}"] = args => {
+                var code = this.Bind<LevelCode>().Code;
+                return PostCodeToLevel(code);
+            };
+        }
+
+        public LevelResponse PostCodeToLevel(string code)
+        {
+            return new LevelResponse { Result = "Foobar!" };
         }
     }
 }
