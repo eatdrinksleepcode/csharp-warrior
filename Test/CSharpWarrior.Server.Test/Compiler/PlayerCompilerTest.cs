@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System;
 
-namespace CSharpWarrior.Server
+namespace CSharpWarrior.Compiler
 {
     public class PlayerCompilerTest
     {

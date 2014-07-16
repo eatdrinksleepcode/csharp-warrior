@@ -37,6 +37,11 @@
     <Compile Include="Compiler\CodeCompilationException.cs" />
     <Compile Include="Domain\IPlayer.cs" />
     <Compile Include="Domain\WarriorAction.cs" />
+    <Compile Include="Compiler\Sandbox.cs" />
+    <Compile Include="Compiler\SandboxAgent.cs" />
+    <Compile Include="Compiler\LevelCrawlerAgent.cs" />
+    <Compile Include="Compiler\IAssembly.cs" />
+    <Compile Include="Compiler\CodeExecutionException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">

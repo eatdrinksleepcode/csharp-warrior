@@ -51,10 +51,15 @@
     <Reference Include="CsQuery">
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
     </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LevelModuleTests.cs" />
     <Compile Include="Compiler\PlayerCompilerTest.cs" />
+    <Compile Include="Compiler\SandboxTest.cs" />
+    <Compile Include="Compiler\LevelCrawlerAgentTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
