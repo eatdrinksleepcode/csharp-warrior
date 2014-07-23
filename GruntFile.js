@@ -62,7 +62,7 @@ module.exports = function (grunt) {
         		tasks: ['jasmine:all']
     		},
             cs: {
-                files: ['Test/**/*.cs'],
+                files: ['Test/**/*.cs', 'Source/**/*.cs'],
                 tasks: ['msbuild', 'shell:nunit']
             }
         }
