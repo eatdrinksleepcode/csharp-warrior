@@ -26,7 +26,9 @@ namespace CSharpWarrior.Web
             });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            response.Body.DeserializeJson<LevelModule.LevelResponse>().Result.Should().Be("Success!!!");
+            var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
+            levelResponse.Output.Should().Be("Success!!!");
+            levelResponse.HasErrors.Should().Be(false);
         }
 
         [Test]
@@ -39,7 +41,9 @@ namespace CSharpWarrior.Web
             });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            response.Body.DeserializeJson<LevelModule.LevelResponse>().Result.Should().Be("Could not compile!!!");
+            var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
+            levelResponse.Output.Should().Be("Could not compile!!!");
+            levelResponse.HasErrors.Should().Be(true);
 
         }
     }

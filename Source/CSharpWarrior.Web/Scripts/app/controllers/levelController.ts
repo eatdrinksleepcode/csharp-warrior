@@ -36,10 +36,10 @@ class LevelController {
     }
 
     public executeCode = function() {
-        this.http.post('/level/1', this.scope.userCode)
+        this.http.post('/level/1',  JSON.stringify({ code: this.scope.userCode}))
             .success((data) => {
-                this.scope.results = data.result;
-                this.scope.isError = false;
+                this.scope.results = data.output;
+                this.scope.isError = data.hasErrors;
             })
             .error((data, status) => {
                 if(status === 400) {

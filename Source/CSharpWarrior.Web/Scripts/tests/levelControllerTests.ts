@@ -27,29 +27,30 @@
             }));
 
             it('displays successful result for good code', () => {
-                httpBackend.when('POST', '/level/1', 'good code').respond({ result: 'Success!' });
+                httpBackend.when('POST', '/level/1',  JSON.stringify({ code: "good code"})).respond({ output: 'Success!!!', hasErrors: false });
 
                 scope.userCode = "good code";
                 controller.executeCode();
                 httpBackend.flush();
 
-                expect(scope.results).toBe("Success!");
+                expect(scope.results).toBe("Success!!!");
                 expect(scope.isError).toBe(false);
             });
 
             it('displays failure results for bad code', () => {
-                httpBackend.when('POST', '/level/1', 'bad code').respond(400, { result: 'Failure!' });
+                var compileErrorMessage = 'Could not compile!!!';
+                httpBackend.when('POST', '/level/1',  JSON.stringify({ code: "bad code" })).respond({ output: compileErrorMessage, hasErrors: true});
 
                 scope.userCode = "bad code";
                 controller.executeCode();
                 httpBackend.flush();
 
-                expect(scope.results).toBe("Failure!");
+                expect(scope.results).toBe(compileErrorMessage);
                 expect(scope.isError).toBe(true);
             });
 
             it('displays failure results for unknown errors', () => {
-                httpBackend.when('POST', '/level/1', 'unknown error').respond(404);
+                httpBackend.when('POST', '/level/1').respond(404);
 
                 scope.userCode = "unknown error";
                 controller.executeCode();

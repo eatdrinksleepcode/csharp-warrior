@@ -8,7 +8,16 @@ namespace CSharpWarrior.Web
     {
         public class LevelResponse
         {
-            public string Result { get; set; }
+            public string Output { get; set; }
+            public bool HasErrors { get; set; }
+
+            public static LevelResponse CompileError() {
+                return new LevelResponse { Output = "Could not compile!!!", HasErrors = true };
+            }
+
+            public static LevelResponse Success() {
+                return new LevelResponse { Output = "Success!!!", HasErrors = false };
+            }
         }
 
         private class LevelCode
@@ -29,15 +38,12 @@ namespace CSharpWarrior.Web
             var compiler = new PlayerCompiler();
             var compileResult = compiler.Compile(code);
 
-            var result = HasCompileErrors(compileResult) ? "Could not compile!!!" : "Success!!!";
+            if(compileResult.Errors.Count > 0) {
+                return LevelResponse.CompileError();
+            } else {
+                return LevelResponse.Success();
+            }
 
-            return new LevelResponse { Result = result };
-
-        }
-
-        private static bool HasCompileErrors(System.CodeDom.Compiler.CompilerResults compileResult)
-        {
-            return compileResult.Errors.Count > 0;
         }
 
     }
