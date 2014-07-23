@@ -17,16 +17,7 @@ namespace CSharpWarrior.Compiler
         [Test]
         public void ShouldCompileValidCode()
         {
-            const string ValidCode = @"
-                using CSharpWarrior.Domain;
-                public class Player : IPlayer {
-                    public WarriorAction Play() {
-                        return new WarriorAction();
-                    }
-                }
-                ";
-
-            var compilation = compiler.Compile(ValidCode);
+            var compilation = compiler.Compile(TestCode.ValidCode);
 
             compilation.Errors.Should().BeEmpty();
         }

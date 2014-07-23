@@ -56,10 +56,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LevelModuleTests.cs" />
     <Compile Include="Compiler\PlayerCompilerTest.cs" />
     <Compile Include="Compiler\SandboxTest.cs" />
     <Compile Include="Compiler\LevelCrawlerAgentTest.cs" />
+    <Compile Include="TestCode.cs" />
+    <Compile Include="Modules\LevelModuleTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -73,5 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Compiler\" />
+    <Folder Include="Modules\" />
   </ItemGroup>
 </Project>

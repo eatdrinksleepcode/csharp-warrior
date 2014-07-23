@@ -21,7 +21,7 @@ namespace CSharpWarrior.Web
         {
             var response = browser.Post ("/level/1", with => {
                 with.AjaxRequest ();
-                with.JsonBody (new { Code = "Good Code" });
+                with.JsonBody (new { Code = TestCode.ValidCode });
                 with.Accept ("application/json");
             });
 
