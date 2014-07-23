@@ -10,23 +10,37 @@ namespace CSharpWarrior.Web
         Browser browser;
 
         [SetUp]
-        public void SetUp ()
+        public void SetUp()
         {
-            var bootstrapper = new DefaultNancyBootstrapper ();
-            browser = new Browser (bootstrapper);
+            var bootstrapper = new DefaultNancyBootstrapper();
+            browser = new Browser(bootstrapper);
         }
 
         [Test]
-        public void GoodCode ()
+        public void GoodCode()
         {
-            var response = browser.Post ("/level/1", with => {
-                with.AjaxRequest ();
-                with.JsonBody (new { Code = TestCode.ValidCode });
-                with.Accept ("application/json");
+            var response = browser.Post("/level/1", with => {
+                with.AjaxRequest();
+                with.JsonBody(new { Code = TestCode.ValidCode });
+                with.Accept("application/json");
             });
 
-            response.StatusCode.Should ().Be (HttpStatusCode.OK);
-            response.Body.DeserializeJson<LevelModule.LevelResponse> ().Result.Should ().Be ("Foobar!");
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            response.Body.DeserializeJson<LevelModule.LevelResponse>().Result.Should().Be("Success!!!");
+        }
+
+        [Test]
+        public void ShouldSendErrorMessageIfCodeIsInvalid()
+        {
+            var response = browser.Post("/level/1", with => {
+                with.AjaxRequest();
+                with.JsonBody(new { Code = TestCode.InvalidCode });
+                with.Accept("application/json");
+            });
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            response.Body.DeserializeJson<LevelModule.LevelResponse>().Result.Should().Be("Could not compile!!!");
+
         }
     }
 }

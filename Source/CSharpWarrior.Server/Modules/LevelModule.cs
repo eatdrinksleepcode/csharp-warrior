@@ -1,5 +1,6 @@
 ﻿using Nancy;
 using Nancy.ModelBinding;
+using CSharpWarrior.Compiler;
 
 namespace CSharpWarrior.Web
 {
@@ -25,8 +26,20 @@ namespace CSharpWarrior.Web
 
         public LevelResponse PostCodeToLevel(string code)
         {
-            return new LevelResponse { Result = "Foobar!" };
+            var compiler = new PlayerCompiler();
+            var compileResult = compiler.Compile(code);
+
+            var result = HasCompileErrors(compileResult) ? "Could not compile!!!" : "Success!!!";
+
+            return new LevelResponse { Result = result };
+
         }
+
+        private static bool HasCompileErrors(System.CodeDom.Compiler.CompilerResults compileResult)
+        {
+            return compileResult.Errors.Count > 0;
+        }
+
     }
 }
 

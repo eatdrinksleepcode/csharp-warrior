@@ -12,6 +12,10 @@ namespace CSharpWarrior
                     }
                 }
                 ";
+
+        public const string InvalidCode =  @"
+                foobar
+                ";
     }
 }
 

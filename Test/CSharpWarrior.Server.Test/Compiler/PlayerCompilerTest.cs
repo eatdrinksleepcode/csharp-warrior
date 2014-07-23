@@ -25,13 +25,9 @@ namespace CSharpWarrior.Compiler
         [Test]
         public void ShouldNotCompileInvalidCode()
         {
-            const string InvalidCode = @"
-                foobar
-                ";
+            var compilation = compiler.Compile(TestCode.InvalidCode);
 
-
-            compiler.Invoking(c => c.Compile(InvalidCode))
-                .ShouldThrow<CodeCompilationException>();
+            compilation.Errors.Should().NotBeEmpty();
         }
     }
 }

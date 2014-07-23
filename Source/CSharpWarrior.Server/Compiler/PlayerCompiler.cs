@@ -19,9 +19,6 @@ namespace CSharpWarrior.Compiler
         public CompilerResults Compile(string code)
         {
             var results = compiler.CompileAssemblyFromSource(options, code);
-            if(results.Errors.Count > 0) {
-                throw new CodeCompilationException(results.Errors[0].ErrorText);
-            }
             return results;
         }
 
