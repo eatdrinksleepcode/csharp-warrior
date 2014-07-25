@@ -5,29 +5,8 @@ using System.CodeDom.Compiler;
 
 namespace CSharpWarrior.Web
 {
-
     public class LevelModule : NancyModule
     {
-        public class LevelResponse
-        {
-            public string Output { get; set; }
-            public bool HasErrors { get; set; }
-
-            public static LevelResponse CompileError() {
-                return new LevelResponse { 
-                    Output = "Could not compile!!!", 
-                    HasErrors = true
-                };
-            }
-
-            public static LevelResponse Success() {
-                return new LevelResponse { 
-                    Output = "Success!!!", 
-                    HasErrors = false
-                };
-            }
-        }
-
         private class LevelCode
         {
             public string Code { get; set; }
@@ -47,7 +26,7 @@ namespace CSharpWarrior.Web
             var compileResult = compiler.Compile(code);
 
             return compileResult.HasErrors() 
-                   ? LevelResponse.CompileError() 
+                ? LevelResponse.CompileError(new CompilerErrorCollection()) 
                    : LevelResponse.Success();
         }
 

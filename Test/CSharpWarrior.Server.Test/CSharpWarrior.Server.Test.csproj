@@ -62,6 +62,7 @@
     <Compile Include="TestCode.cs" />
     <Compile Include="Modules\LevelModuleTests.cs" />
     <Compile Include="Modules\BrowserExtensions.cs" />
+    <Compile Include="Modules\LevelResponseTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

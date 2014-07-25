@@ -22,18 +22,18 @@ namespace CSharpWarrior.Web
             var response = browser.PostJson("/level/1", new { Code = TestCode.ValidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
+            var levelResponse = response.Body.DeserializeJson<LevelResponse>();
             levelResponse.Output.Should().Be("Success!!!");
             levelResponse.HasErrors.Should().Be(false);
         }
 
         [Test]
-        public void ShouldSendErrorMessageIfCodeIsInvalid()
+        public void BadCode()
         {
             var response = browser.PostJson("/level/1", new { Code = TestCode.InvalidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
+            var levelResponse = response.Body.DeserializeJson<LevelResponse>();
             levelResponse.Output.Should().Be("Could not compile!!!");
             levelResponse.HasErrors.Should().Be(true);
 
