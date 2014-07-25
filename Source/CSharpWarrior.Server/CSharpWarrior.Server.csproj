@@ -42,6 +42,7 @@
     <Compile Include="Compiler\CodeExecutionException.cs" />
     <Compile Include="Modules\HelloWorldModule.cs" />
     <Compile Include="Modules\LevelModule.cs" />
+    <Compile Include="Compiler\CompilerResultsExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">

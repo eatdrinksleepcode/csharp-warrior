@@ -1,9 +1,11 @@
 ﻿using Nancy;
 using Nancy.ModelBinding;
 using CSharpWarrior.Compiler;
+using System.CodeDom.Compiler;
 
 namespace CSharpWarrior.Web
 {
+
     public class LevelModule : NancyModule
     {
         public class LevelResponse
@@ -12,11 +14,17 @@ namespace CSharpWarrior.Web
             public bool HasErrors { get; set; }
 
             public static LevelResponse CompileError() {
-                return new LevelResponse { Output = "Could not compile!!!", HasErrors = true };
+                return new LevelResponse { 
+                    Output = "Could not compile!!!", 
+                    HasErrors = true
+                };
             }
 
             public static LevelResponse Success() {
-                return new LevelResponse { Output = "Success!!!", HasErrors = false };
+                return new LevelResponse { 
+                    Output = "Success!!!", 
+                    HasErrors = false
+                };
             }
         }
 
@@ -38,12 +46,9 @@ namespace CSharpWarrior.Web
             var compiler = new PlayerCompiler();
             var compileResult = compiler.Compile(code);
 
-            if(compileResult.Errors.Count > 0) {
-                return LevelResponse.CompileError();
-            } else {
-                return LevelResponse.Success();
-            }
-
+            return compileResult.HasErrors() 
+                   ? LevelResponse.CompileError() 
+                   : LevelResponse.Success();
         }
 
     }
