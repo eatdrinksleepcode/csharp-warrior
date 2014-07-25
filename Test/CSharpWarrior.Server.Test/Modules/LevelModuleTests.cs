@@ -19,11 +19,7 @@ namespace CSharpWarrior.Web
         [Test]
         public void GoodCode()
         {
-            var response = browser.Post("/level/1", with => {
-                with.AjaxRequest();
-                with.JsonBody(new { Code = TestCode.ValidCode });
-                with.Accept("application/json");
-            });
+            var response = browser.PostJson("/level/1", new { Code = TestCode.ValidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
@@ -34,11 +30,7 @@ namespace CSharpWarrior.Web
         [Test]
         public void ShouldSendErrorMessageIfCodeIsInvalid()
         {
-            var response = browser.Post("/level/1", with => {
-                with.AjaxRequest();
-                with.JsonBody(new { Code = TestCode.InvalidCode });
-                with.Accept("application/json");
-            });
+            var response = browser.PostJson("/level/1", new { Code = TestCode.InvalidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var levelResponse = response.Body.DeserializeJson<LevelModule.LevelResponse>();
