@@ -24,6 +24,10 @@
     display: block;
 }
 
-#displayResults.failure {
+.failure {
     color: red;
+}
+
+#displayResults span {
+    display: block;
 }

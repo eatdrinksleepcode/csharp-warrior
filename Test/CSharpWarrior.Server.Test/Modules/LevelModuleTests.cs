@@ -36,6 +36,7 @@ namespace CSharpWarrior.Web
             var levelResponse = response.Body.DeserializeJson<LevelResponse>();
             levelResponse.Output.Should().Be("Could not compile!!!");
             levelResponse.HasErrors.Should().Be(true);
+            levelResponse.Errors.Count.Should().BeGreaterThan(0);
 
         }
     }

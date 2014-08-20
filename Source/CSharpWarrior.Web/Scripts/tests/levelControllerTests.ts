@@ -1,4 +1,4 @@
-﻿describe("Test", function() {
+describe("Test", function() {
     var scope: csharpLevelScope;
     var controller: LevelController;
 
@@ -39,7 +39,8 @@
 
             it('displays failure results for bad code', () => {
                 var compileErrorMessage = 'Could not compile!!!';
-                httpBackend.when('POST', '/level/1',  JSON.stringify({ code: "bad code" })).respond({ output: compileErrorMessage, hasErrors: true});
+                httpBackend.when('POST', '/level/1',  JSON.stringify({ code: "bad code" }))
+                           .respond({ output: compileErrorMessage, hasErrors: true, errors: ["Error!!!"]});
 
                 scope.userCode = "bad code";
                 controller.executeCode();
@@ -47,6 +48,7 @@
 
                 expect(scope.results).toBe(compileErrorMessage);
                 expect(scope.isError).toBe(true);
+                expect(scope.errors.length).toBe(1);
             });
 
             it('displays failure results for unknown errors', () => {

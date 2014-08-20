@@ -1,4 +1,4 @@
-﻿interface csharpLevelScope extends ng.IScope {
+interface csharpLevelScope extends ng.IScope {
     ctrl:LevelController;
     motivation:string;
     level:Level;
@@ -6,6 +6,7 @@
 
     results:string;
     isError:boolean;
+    errors:string[];
 }
 
 interface Level {
@@ -40,6 +41,7 @@ class LevelController {
             .success((data) => {
                 this.scope.results = data.output;
                 this.scope.isError = data.hasErrors;
+                this.scope.errors = data.errors;
             })
             .error((data, status) => {
                 if(status === 400) {

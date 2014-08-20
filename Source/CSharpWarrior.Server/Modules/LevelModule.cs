@@ -19,14 +19,14 @@ namespace CSharpWarrior.Web
                 return PostCodeToLevel(code);
             };
         }
-
+            
         public LevelResponse PostCodeToLevel(string code)
         {
             var compiler = new PlayerCompiler();
             var compileResult = compiler.Compile(code);
 
             return compileResult.HasErrors() 
-                ? LevelResponse.CompileError(new CompilerErrorCollection()) 
+                ? LevelResponse.CompileError(compileResult.Errors) 
                    : LevelResponse.Success();
         }
 
