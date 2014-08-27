@@ -1,39 +1,23 @@
-interface csharpLevelScope extends ng.IScope {
-    ctrl:LevelController;
-    motivation:string;
-    level:Level;
-    userCode:string;
-
-    results:string;
-    isError:boolean;
-    errors:string[];
-}
-
-interface Level {
-    tiles: Tile[];
-    objective: string;
-}
-
-interface Tile {
-    heroIsHere?: boolean;
-    isExit?: boolean;
-}
-
 class LevelController {
 
-    scope: csharpLevelScope;
+    scope: any;
     http: ng.IHttpService;
 
-    constructor($scope:csharpLevelScope, $routeParams, $http: ng.IHttpService) {
+    constructor($scope, $routeParams, $http: ng.IHttpService) {
         this.scope = $scope;
         this.http = $http;
 
         this.scope.ctrl = this;
+        this.scope.currentLevel = 1;
+
         this.scope.motivation = "Level " + $routeParams.currentLevel;
-        this.scope.level = {
-            objective: "Get to the exit!",
-            tiles: [ { heroIsHere: true }, {}, { isExit: true } ] 
-        };
+    }
+
+    public getLevel(levelId: number): void {
+        this.http.get('/level/1')
+            .success((data: any) => {
+                this.scope.level = data;
+            });
     }
 
     public executeCode = function() {

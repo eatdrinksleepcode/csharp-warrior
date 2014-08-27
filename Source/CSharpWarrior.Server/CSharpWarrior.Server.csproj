@@ -34,7 +34,6 @@
     <Compile Include="Compiler\PlayerCompiler.cs" />
     <Compile Include="Compiler\CodeCompilationException.cs" />
     <Compile Include="Domain\IPlayer.cs" />
-    <Compile Include="Domain\WarriorAction.cs" />
     <Compile Include="Compiler\Sandbox.cs" />
     <Compile Include="Compiler\SandboxAgent.cs" />
     <Compile Include="Compiler\LevelCrawlerAgent.cs" />
@@ -43,7 +42,10 @@
     <Compile Include="Modules\HelloWorldModule.cs" />
     <Compile Include="Modules\LevelModule.cs" />
     <Compile Include="Compiler\CompilerResultsExtensions.cs" />
+    <Compile Include="Modules\CodeResultResponse.cs" />
     <Compile Include="Modules\LevelResponse.cs" />
+    <Compile Include="Domain\WarriorAction.cs" />
+    <Compile Include="Domain\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">

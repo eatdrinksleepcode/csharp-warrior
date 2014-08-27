@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Nancy;
 using Nancy.Testing;
+using CSharpWarrior.Domain;
 
 namespace CSharpWarrior.Web
 {
@@ -17,14 +18,26 @@ namespace CSharpWarrior.Web
         }
 
         [Test]
+        public void LevelExists()
+        {
+            var response = browser.GetJson("/level/1");
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            var levelResponse = response.Body.DeserializeJson<LevelResponse>();
+
+            levelResponse.Tiles.Should().BeEquivalentTo(new [] {new Tile { HeroIsHere = true }, new Tile(), new Tile { IsExit = true}});
+            levelResponse.Objective.Should().Be("Be Awesome!");
+        }
+
+        [Test]
         public void GoodCode()
         {
             var response = browser.PostJson("/level/1", new { Code = TestCode.ValidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var levelResponse = response.Body.DeserializeJson<LevelResponse>();
-            levelResponse.Output.Should().Be("Success!!!");
-            levelResponse.HasErrors.Should().Be(false);
+            var codeResultResponse = response.Body.DeserializeJson<CodeResultResponse>();
+            codeResultResponse.Output.Should().Be("Success!!!");
+            codeResultResponse.HasErrors.Should().Be(false);
         }
 
         [Test]
@@ -33,10 +46,10 @@ namespace CSharpWarrior.Web
             var response = browser.PostJson("/level/1", new { Code = TestCode.InvalidCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var levelResponse = response.Body.DeserializeJson<LevelResponse>();
-            levelResponse.Output.Should().Be("Could not compile!!!");
-            levelResponse.HasErrors.Should().Be(true);
-            levelResponse.Errors.Count.Should().BeGreaterThan(0);
+            var codeResultResponse = response.Body.DeserializeJson<CodeResultResponse>();
+            codeResultResponse.Output.Should().Be("Could not compile!!!");
+            codeResultResponse.HasErrors.Should().Be(true);
+            codeResultResponse.Errors.Count.Should().BeGreaterThan(0);
 
         }
     }

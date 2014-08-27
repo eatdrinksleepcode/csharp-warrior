@@ -13,6 +13,12 @@ namespace CSharpWarrior.Web
                     with.Accept("application/json");
             });
         }
+
+        public static BrowserResponse GetJson(this Browser browser, string url){
+            return browser.Get(url, with => {
+                with.Accept("application/json");
+            });
+        }
     }
     
 }

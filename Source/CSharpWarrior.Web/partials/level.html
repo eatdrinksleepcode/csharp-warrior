@@ -1,11 +1,13 @@
 ﻿<h3>Hello Warrior!</h3>
 
-<h4>{{motivation}}</h4>
-<h5>{{level.objective}}</h5>
+<div ng-init="ctrl.getLevel(currentLevel)">
+    <h4>{{motivation}}</h4>
+    <h5>{{level.objective}}</h5>
 
-<div class="tile" ng-repeat="tile in level.tiles">
-    <span ng-show="tile.heroIsHere">Hero!</span>
-    <span ng-show="tile.isExit">Exit!</span>
+    <div class="tile" ng-repeat="tile in level.tiles">
+        <span ng-show="tile.heroIsHere">Hero!</span>
+        <span ng-show="tile.isExit">Exit!</span>
+    </div>
 </div>
 
 <textarea id="inputCode" ng-model="userCode">

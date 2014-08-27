@@ -5,15 +5,15 @@ using FluentAssertions;
 
 namespace CSharpWarrior.Web
 {
-    public class LevelResponseTest
+    public class CodeResultResponseTests
     {
         [Test]
         public void HasCompilerErrors() {
             var errors = new CompilerErrorCollection() {
                 new CompilerError() { ErrorText = "The force is not strong with this code", Line = 42 }
             };
-            var levelResponse = LevelResponse.CompileError(errors);
-            levelResponse.Errors.Should().BeEquivalentTo("(42) The force is not strong with this code");
+            var codeResultResponse = CodeResultResponse.CompileError(errors);
+            codeResultResponse.Errors.Should().BeEquivalentTo("(42) The force is not strong with this code");
         }
     }
 }

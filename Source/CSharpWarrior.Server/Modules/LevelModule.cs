@@ -2,6 +2,7 @@
 using Nancy.ModelBinding;
 using CSharpWarrior.Compiler;
 using System.CodeDom.Compiler;
+using CSharpWarrior.Domain;
 
 namespace CSharpWarrior.Web
 {
@@ -14,20 +15,27 @@ namespace CSharpWarrior.Web
 
         public LevelModule()
         {
+            Get["/level/{currentLevel}"] = args => {
+                return new LevelResponse { 
+                    Tiles = new [] { new Tile { HeroIsHere = true }, new Tile(), new Tile { IsExit = true} },
+                    Objective = "Be Awesome!",
+                };
+            };
+
             Post["/level/{currentLevel}"] = args => {
                 var code = this.Bind<LevelCode>().Code;
                 return PostCodeToLevel(code);
             };
         }
             
-        public LevelResponse PostCodeToLevel(string code)
+        public CodeResultResponse PostCodeToLevel(string code)
         {
             var compiler = new PlayerCompiler();
             var compileResult = compiler.Compile(code);
 
             return compileResult.HasErrors() 
-                ? LevelResponse.CompileError(compileResult.Errors) 
-                   : LevelResponse.Success();
+                ? CodeResultResponse.CompileError(compileResult.Errors) 
+                   : CodeResultResponse.Success();
         }
 
     }

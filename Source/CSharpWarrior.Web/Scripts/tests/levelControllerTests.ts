@@ -1,5 +1,5 @@
 describe("Test", function() {
-    var scope: csharpLevelScope;
+    var scope: any;
     var controller: LevelController;
 
     beforeEach(function () {
@@ -17,6 +17,27 @@ describe("Test", function() {
 
         it('sets the level', function () {
             expect(scope.motivation).toBe('Level 1');
+        });
+
+        describe('get level', function () {
+            var httpBackend;
+
+            beforeEach(inject(function($httpBackend) {
+                httpBackend = $httpBackend;
+            }));
+
+            it('gets the level...?', () => {
+                var level1 = { objective: 'You are a wizard Harry!!', 
+                               tiles: [ { heroIsHere: true, isExit: false },
+                                        { heroIsHere: false, isExit: true} ] }
+
+                httpBackend.when('GET', '/level/1').respond(level1);
+                controller.getLevel(1);
+                httpBackend.flush();
+
+                expect(scope.level).toEqual(level1);  
+            });
+    
         });
 
         describe('executes code', function() {
