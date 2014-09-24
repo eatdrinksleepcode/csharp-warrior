@@ -22,8 +22,13 @@ namespace CSharpWarrior
                 foobar
                 ";
 
-        public const string InvalidCode = @"
+        public const string MissingPlayerClass = @"
                 public class NotAPlayer {
+                }
+                ";
+
+        public const string PlayerClassDoesNotImplementIPlayer = @"
+                public class Player {
                 }
                 ";
     }

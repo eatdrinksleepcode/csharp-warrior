@@ -27,6 +27,8 @@ namespace CSharpWarrior.Compiler
             var playerType = results.CompiledAssembly.GetType("Player");
             if(null == playerType) {
                 throw new CodeCompilationException(new [] { "Code must have a class named 'Player'." });
+            } else if(playerType.GetInterface("IPlayer") != typeof(IPlayer)) {
+                throw new CodeCompilationException(new [] { string.Format("Class 'Player' must implement interface '{0}'", typeof(IPlayer).FullName) });
             }
 
             return playerType;

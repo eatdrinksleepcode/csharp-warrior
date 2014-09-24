@@ -31,9 +31,17 @@ namespace CSharpWarrior.Compiler
         }
 
         [Test]
-        public void InvalidCode()
+        public void MissingPlayerClass()
         {
-            Action act = () => compiler.Compile(TestCode.InvalidCode);
+            Action act = () => compiler.Compile(TestCode.MissingPlayerClass);
+
+            act.ShouldThrow<CodeCompilationException>();
+        }
+
+        [Test]
+        public void PlayerClassDoesNotImplementIPlayer()
+        {
+            Action act = () => compiler.Compile(TestCode.PlayerClassDoesNotImplementIPlayer);
 
             act.ShouldThrow<CodeCompilationException>();
         }

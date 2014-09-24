@@ -17,6 +17,7 @@ namespace CSharpWarrior.Compiler
         }
 
         public CodeCompilationException(IEnumerable<string> compilationErrors)
+            : base(string.Join(Environment.NewLine, compilationErrors))
         {
             errors.AddRange(compilationErrors);
         }
