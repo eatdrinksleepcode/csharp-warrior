@@ -1,6 +1,6 @@
 ﻿using System;
-using Microsoft.CSharp;
 using System.CodeDom.Compiler;
+using Microsoft.CSharp;
 using CSharpWarrior.Domain;
 
 
@@ -16,10 +16,20 @@ namespace CSharpWarrior.Compiler
             options.ReferencedAssemblies.Add(typeof(IPlayer).Assembly.Location);
         }
 
-        public CompilerResults Compile(string code)
+        public Type Compile(string code)
         {
             var results = compiler.CompileAssemblyFromSource(options, code);
-            return results;
+
+            if(results.HasErrors()) {
+                throw new CodeCompilationException(results.Errors);
+            }
+
+            var playerType = results.CompiledAssembly.GetType("Player");
+            if(null == playerType) {
+                throw new CodeCompilationException(new [] { "Code must have a class named 'Player'." });
+            }
+
+            return playerType;
         }
 
         public void Dispose()

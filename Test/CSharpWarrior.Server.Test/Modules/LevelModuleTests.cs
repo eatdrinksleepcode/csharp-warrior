@@ -25,7 +25,11 @@ namespace CSharpWarrior.Web
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var levelResponse = response.Body.DeserializeJson<LevelResponse>();
 
-            levelResponse.Tiles.Should().BeEquivalentTo(new [] {new Tile { HeroIsHere = true }, new Tile(), new Tile { IsExit = true}});
+            levelResponse.Tiles.Should().BeEquivalentTo(new [] {
+                new Tile { HeroIsHere = true },
+                new Tile(),
+                new Tile { IsExit = true }
+            });
             levelResponse.Objective.Should().Be("Be Awesome!");
         }
 
@@ -43,7 +47,7 @@ namespace CSharpWarrior.Web
         [Test]
         public void BadCode()
         {
-            var response = browser.PostJson("/level/1", new { Code = TestCode.InvalidCode });
+            var response = browser.PostJson("/level/1", new { Code = TestCode.NonCompilingCode });
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var codeResultResponse = response.Body.DeserializeJson<CodeResultResponse>();

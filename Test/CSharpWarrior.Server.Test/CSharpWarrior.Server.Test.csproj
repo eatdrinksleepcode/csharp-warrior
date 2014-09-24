@@ -63,6 +63,7 @@
     <Compile Include="Modules\LevelModuleTests.cs" />
     <Compile Include="Modules\BrowserExtensions.cs" />
     <Compile Include="Modules\CodeResultResponseTests.cs" />
+    <Compile Include="Compiler\CodeCompilationExceptionTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

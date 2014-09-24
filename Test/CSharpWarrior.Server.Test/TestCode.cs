@@ -13,8 +13,18 @@ namespace CSharpWarrior
                 }
                 ";
 
-        public const string InvalidCode =  @"
+        public const string IncompleteCode = @"
+                public class Player {
+                }
+                ";
+
+        public const string NonCompilingCode = @"
                 foobar
+                ";
+
+        public const string InvalidCode = @"
+                public class NotAPlayer {
+                }
                 ";
     }
 }

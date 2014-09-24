@@ -1,19 +1,17 @@
-﻿using System;
-using NUnit.Framework;
-using System.CodeDom.Compiler;
+﻿using CSharpWarrior.Compiler;
 using FluentAssertions;
+using NUnit.Framework;
 
 namespace CSharpWarrior.Web
 {
     public class CodeResultResponseTests
     {
         [Test]
-        public void HasCompilerErrors() {
-            var errors = new CompilerErrorCollection() {
-                new CompilerError() { ErrorText = "The force is not strong with this code", Line = 42 }
-            };
-            var codeResultResponse = CodeResultResponse.CompileError(errors);
-            codeResultResponse.Errors.Should().BeEquivalentTo("(42) The force is not strong with this code");
+        public void HasCompilerErrors()
+        {
+            var ex = new CodeCompilationException(new [] { "Error 1", "Error 2" });
+            var codeResultResponse = CodeResultResponse.CompileError(ex);
+            codeResultResponse.Errors.Should().HaveCount(2);
         }
     }
 }

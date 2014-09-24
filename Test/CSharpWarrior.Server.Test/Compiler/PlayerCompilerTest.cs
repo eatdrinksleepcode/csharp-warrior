@@ -15,20 +15,27 @@ namespace CSharpWarrior.Compiler
         }
 
         [Test]
-        public void ShouldCompileValidCode()
+        public void ValidCode()
         {
-            var compilation = compiler.Compile(TestCode.ValidCode);
+            var playerType = compiler.Compile(TestCode.ValidCode);
 
-            compilation.Errors.Should().BeEmpty();
+            playerType.Name.Should().Be("Player");
         }
 
         [Test]
-        public void ShouldNotCompileInvalidCode()
+        public void NonCompilingCode()
         {
-            var compilation = compiler.Compile(TestCode.InvalidCode);
+            Action act = () => compiler.Compile(TestCode.NonCompilingCode);
 
-            compilation.Errors.Should().NotBeEmpty();
+            act.ShouldThrow<CodeCompilationException>();
+        }
+
+        [Test]
+        public void InvalidCode()
+        {
+            Action act = () => compiler.Compile(TestCode.InvalidCode);
+
+            act.ShouldThrow<CodeCompilationException>();
         }
     }
 }
-
