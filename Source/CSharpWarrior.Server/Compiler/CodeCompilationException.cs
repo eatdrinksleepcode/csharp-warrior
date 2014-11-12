@@ -11,8 +11,8 @@ namespace CSharpWarrior.Compiler
     {
         private readonly List<String> errors = new List<string>();
 
-        public CodeCompilationException(CompilerErrorCollection compilationErrors)
-            : this(compilationErrors.Cast<CompilerError>().Select(FormatError))
+        public CodeCompilationException(IEnumerable<CompilerError> compilationErrors)
+            : this(compilationErrors.Select(FormatError))
         {
         }
 

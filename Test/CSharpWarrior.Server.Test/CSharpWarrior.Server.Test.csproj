@@ -54,16 +54,27 @@
     <Reference Include="Moq">
       <HintPath>..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compiler\PlayerCompilerTest.cs" />
-    <Compile Include="Compiler\SandboxTest.cs" />
-    <Compile Include="Compiler\LevelCrawlerAgentTest.cs" />
     <Compile Include="TestCode.cs" />
     <Compile Include="Modules\LevelModuleTests.cs" />
     <Compile Include="Modules\BrowserExtensions.cs" />
     <Compile Include="Modules\CodeResultResponseTests.cs" />
     <Compile Include="Compiler\CodeCompilationExceptionTests.cs" />
+    <Compile Include="Compiler\WhitelistValidatorTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

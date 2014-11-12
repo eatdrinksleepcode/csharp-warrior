@@ -1,7 +1,9 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Linq;
 using Microsoft.CSharp;
 using CSharpWarrior.Domain;
+using CSharpWarrior.Compiler;
 
 
 namespace CSharpWarrior.Compiler
@@ -20,8 +22,10 @@ namespace CSharpWarrior.Compiler
         {
             var results = compiler.CompileAssemblyFromSource(options, code);
 
-            if(results.HasErrors()) {
-                throw new CodeCompilationException(results.Errors);
+            var errors = results.Errors.Cast<CompilerError>().Where(e => !e.IsWarning).ToArray();
+
+            if(errors.Length > 0) {
+                throw new CodeCompilationException(errors);
             }
 
             var playerType = results.CompiledAssembly.GetType("Player");

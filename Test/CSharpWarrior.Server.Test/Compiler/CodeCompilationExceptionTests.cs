@@ -9,7 +9,7 @@ namespace CSharpWarrior.Compiler
         [Test]
         public void FormatCompilerErrors()
         {
-            var errors = new CompilerErrorCollection() {
+            var errors = new [] {
                 new CompilerError { ErrorText = "The force is not strong with this code", Line = 42 }
             };
             var ex = new CodeCompilationException(errors);

@@ -34,9 +34,6 @@
     <Compile Include="Compiler\PlayerCompiler.cs" />
     <Compile Include="Compiler\CodeCompilationException.cs" />
     <Compile Include="Domain\IPlayer.cs" />
-    <Compile Include="Compiler\Sandbox.cs" />
-    <Compile Include="Compiler\SandboxAgent.cs" />
-    <Compile Include="Compiler\LevelCrawlerAgent.cs" />
     <Compile Include="Compiler\IAssembly.cs" />
     <Compile Include="Compiler\CodeExecutionException.cs" />
     <Compile Include="Modules\HelloWorldModule.cs" />
@@ -46,12 +43,25 @@
     <Compile Include="Modules\LevelResponse.cs" />
     <Compile Include="Domain\WarriorAction.cs" />
     <Compile Include="Domain\Tile.cs" />
+    <Compile Include="Compiler\WhitelistValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">
       <HintPath>..\..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -23,6 +23,14 @@ namespace CSharpWarrior.Compiler
         }
 
         [Test]
+        public void ValidCodeWithWarning()
+        {
+            var playerType = compiler.Compile(TestCode.ValidCodeWithWarning);
+
+            playerType.Name.Should().Be("Player");
+        }
+
+        [Test]
         public void NonCompilingCode()
         {
             Action act = () => compiler.Compile(TestCode.NonCompilingCode);
