@@ -99,7 +99,7 @@ namespace CSharpWarrior
             using CSharpWarrior.Domain;
             public class Player : System.Net.Sockets.TcpClient, IPlayer {
                 public WarriorAction Play() {
-                    System.IO.Directory.EnumerateFiles (@""C:"");
+                    Connect(""localhost"", 80);
                     return null;
                 }
             }

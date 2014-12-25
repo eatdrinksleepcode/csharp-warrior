@@ -14,13 +14,27 @@ namespace CSharpWarrior.Compiler
 
         public void Validate(AssemblyDefinition suspect)
         {
-            var methods = from mod in suspect.Modules
+            var types = from mod in suspect.Modules
                                    from t in mod.Types
+                                 select t;
+
+            foreach(var t in types) {
+                Validate(t);
+            }
+
+            var methods = from t in types
                                    from m in t.Methods
                                    select m;
 
             foreach(var m in methods) {
                 Validate(m.Body);
+            }
+        }
+
+        private static void Validate(TypeDefinition type)
+        {
+            if(type.BaseType != null && type.BaseType.FullName != "System.Object") {
+                throw new CodeExecutionException(string.Format("Dangerous code found: {0} inherits from {1}", type.FullName, type.BaseType));
             }
         }
 
