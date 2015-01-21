@@ -75,6 +75,7 @@
     <Compile Include="Modules\CodeResultResponseTests.cs" />
     <Compile Include="Compiler\CodeCompilationExceptionTests.cs" />
     <Compile Include="Compiler\WhitelistValidatorTests.cs" />
+    <Compile Include="Compiler\ExternalCodeCompilerTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
