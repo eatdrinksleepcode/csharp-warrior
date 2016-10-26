@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		dev.sh = dev.sh
 		README.md = README.md
 		push.sh = push.sh
+		baufile.csx = baufile.csx
 	EndProjectSection
 EndProject
 Global
@@ -54,7 +55,6 @@ Global
 		{EF1B280E-3D47-4856-B958-5127956DFBF0} = {04FD85BE-BE35-4043-940E-92C8DC88CBB2}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Source\CSharpWarrior.Web\CSharpWarrior.Web.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.FileWidth = 120
